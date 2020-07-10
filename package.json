@@ -1,15 +1,19 @@
 {
-  "name": "migrationbuilder",
+  "name": "Laravel Migration App",
   "version": "1.0.0",
-  "description": "",
+  "description": "Laravel basic table migration app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "harendraverma21@gmail.com",
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.9",
     "bootstrap": "^3.3.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/harendra21/laravel-migration-builder.git"
   }
 }
