@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body class="container-fluid" ng-app="MyApp" ng-controller="HomeCtrl">
+
+  <h3>Laravel Migration Builder</h3>
+  <table class="table table-bordered">
+    <tr>
+      <th>Column Name</th>
+      <th>Type</th>
+      <th>Length</th>
+      <th>Null</th>
+      <th>Action</th>
+    </tr>
+    <tbody ng-repeat="col in columns">
+      <tr>
+
+        <td><input type="text" class="form-control" value="{{col.col_name}}"
+            ng-keyup="edit_value($index,$event.target.value,'name')" /></td>
+        <td>
+          <select value="{{ col.col_type }}" class="form-control"
+            ng-click="edit_value($index,$event.target.value,'type')">
+            <option>Select</option>
+            <option ng-repeat="type in data_types" value="{{type}}" ng-selected="col.col_type == type">{{ type }}
+            </option>
+          </select>
+        </td>
+        <td><input type="text" class="form-control" value="{{col.col_length}}"
+            ng-keyup="edit_value($index,$event.target.value,'length')" /></td>
+        <td>
+          <select value="{{ col.col_null }}" class="form-control"
+            ng-click="edit_value($index,$event.target.value,'null')">
+            <option value="null" ng-selected="col.col_null == 'null'">Null</option>
+            <option value="not_null" ng-selected="col.col_null == 'not_null'">Not Null</option>
+          </select>
+        </td>
+        <td><input type="button" class="btn btn-sm btn-danger" ng-click="Remove($index)" value="Remove" /></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td><input type="text" class="form-control" ng-model="col_name" /></td>
+        <td>
+          <select ng-model="col_type" class="form-control">
+            <option value="">Select</option>
+            <option ng-repeat="type in data_types" value="{{ type }}">{{ type }}</option>
+          </select>
+        </td>
+        <td><input type="text" class="form-control" ng-model="col_length" /></td>
+
+        <td>
+          <select ng-model="col_null" class="form-control">
+            <option value="null" ng-selected="col.col_null == 'null'">Null</option>
+            <option value="not_null" ng-selected="col.col_null == 'not_null'">Not Null</option>
+          </select>
+        </td>
+        <td><input type="button" class="btn btn-sm btn-success" ng-click="add_column()" value="Add" /></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <!-- <pre>{{ columns | json }}</pre> -->
+
+  <div class="row">
+    <div class="col-xs-12" ng-repeat="col in columns">
+      {{ col.migration }}
+    </div>
+  </div>
+
+  <script src="./node_modules/angular/angular.min.js"></script>
+  <script src="./scripts/app.js"></script>
+  <script src="./scripts/appCtrl.js"></script>
+</body>
+
+</html>
