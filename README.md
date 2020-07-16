@@ -8,7 +8,7 @@ Laravel migration - https://laravel.com/docs/7.x/migrations
   1. Clone this repo using `git clone https://github.com/harendra21/laravel-migration-builder.git` or download https://github.com/harendra21/laravel-migration-builder/archive/master.zip.
   2. Extract if download.
   3. Install any http server, I preffered lite-server to install it globally run `npm install -g lite-server`.
-  4. Them run `lite-server`
+  4. Then run `lite-server`
   5. It will launch your project at http://localhost:3000
   6. Done !
   
